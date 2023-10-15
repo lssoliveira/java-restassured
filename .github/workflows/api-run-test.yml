@@ -34,9 +34,9 @@ jobs:
         name: test-results
         path: build/reports/tests/test
 
-    - name: Summary
+    - name: Generate Test Summary
       uses: janisz/action@v2
-      with:
-        paths: "build/reports/tests/test"
-        output: test-summary.md
       if: always()
+      with:
+        paths: build/reports/tests/test/report.xml
+        output: test-summary.md

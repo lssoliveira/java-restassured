@@ -21,8 +21,11 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    - name: Build with Gradle
-      run: ./gradlew test
+    - name: Build Gradle
+      run: gradle build
+
+    - name: Run Test
+      run: gradlew test
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v2

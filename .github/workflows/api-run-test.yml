@@ -38,5 +38,4 @@ jobs:
       uses: janisz/action@v2
       if: always()
       with:
-        paths: build/reports/tests/test/index.xml
-        output: test-summary.md
+        paths: "build/reports/tests/test/index.xml"

@@ -37,5 +37,5 @@ jobs:
     - name: Create test summary
       uses: test-summary/action@dist
       with:
-        paths: build/reports/tests/test/index.html
+        paths: test/results/**/*.xml
       if: always()

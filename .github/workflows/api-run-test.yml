@@ -38,7 +38,7 @@ jobs:
       id: test-summary
       run: |
         total_tests=$(grep 'tests, ' build/reports/tests/test/index.html | sed 's/ tests,.*//')
-        passed_tests=$(grep 'Tests Passed' build/reports/tests/test/index.html | sed 's/.*>\(.*\) Tests Passed<.*/\1/')
+        passed_tests=$(grep 'Tests' build/reports/tests/test/index.html | sed 's/.*>\(.*\) Tests Passed<.*/\1/')
         failed_tests=$((total_tests - passed_tests))
         echo "Test Summary: $passed_tests passed, $failed_tests failed"
 

@@ -35,7 +35,8 @@ jobs:
         path: build/reports/tests/test
 
     - name: Summary
-      uses: test-summary/action@dist
+      uses: janisz/action@v2
       with:
-        path: "build/reports/tests/test"
+        paths: "build/reports/tests/test"
+        outputs: test-summary.md
       if: always()

@@ -38,5 +38,5 @@ jobs:
       uses: janisz/action@v2
       with:
         paths: "build/reports/tests/test"
-        outputs: test-summary.md
+        output: test-summary.md
       if: always()

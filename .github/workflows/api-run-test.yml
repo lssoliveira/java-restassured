@@ -19,8 +19,12 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '11'
+        distribution: 'temurin'
+    
+    - name: Execute Gradle build
+      run: gradle build
 
-    - name: Build with Gradle
+    - name: Run Test
       run: ./gradlew test
 
     - name: Upload Test Results

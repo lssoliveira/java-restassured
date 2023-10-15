@@ -28,7 +28,7 @@ public class UserTest extends ApiBase {
         response.then().
             statusCode(HttpStatus.SC_OK).
             body(
-                "status", is("ok"),
+                "status", is("okERRO"),
                 "method", is("GET")
             );
     }

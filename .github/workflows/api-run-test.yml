@@ -33,17 +33,19 @@ jobs:
       with:
         name: test-results
         path: build/reports/tests/test
-        
-    - name: Summary
-      uses: dorny/test-reporter@v1
+
+    - name: Generate Test Summary
+      uses: janisz/action@v2
+      if: always()
       with:
-        artifact: test-results
-        name: JEST Tests
-        path: 'build/test-results/tests/TEST-*.xml'
-        reporter: jest-junit
-    
-    # - name: Generate Test Summary
-    #   uses: janisz/action@v2
-    #   if: always()
+        paths: "build/test-results/tests/TEST-*.xml"
+
+    # - name: Summary
+    #   uses: dorny/test-reporter@v1
     #   with:
-    #     paths: "build/reports/tests/test"
+    #     artifact: test-results
+    #     name: JEST Tests
+    #     path: 'build/test-results/tests/TEST-*.xml'
+    #     reporter: jest-junit
+    
+

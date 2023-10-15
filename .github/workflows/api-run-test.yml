@@ -24,7 +24,7 @@ jobs:
     - name: Execute Gradle build
       run: gradle build
 
-    - name: Run Test
+    - name: Run Tests
       run: ./gradlew test
 
     - name: Upload Test Results
@@ -34,8 +34,8 @@ jobs:
         name: test-results
         path: build/reports/tests/test
 
-    - name: Create test summary
+    - name: Summary
       uses: test-summary/action@dist
       with:
-        paths: test/results/**/*.xml
+        paths: "test/results/**/*.xml"
       if: always()

@@ -37,6 +37,13 @@ jobs:
       with:
         name: test-results
         path: build/reports/tests/test
+        
+    - name: Upload Test Results XML
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: test-results
+        path: build/test-results/tests
 
     # - name: Generate Test Summary
     #   uses: janisz/action@v2
@@ -49,7 +56,7 @@ jobs:
       if: success() || failure()
       with:
         artifact: test-results
-        name: JUNIT Tests
+        name: JEST Tests
         path: 'build/test-results/tests/TEST-*.xml'
         reporter: jest-junit
     

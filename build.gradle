@@ -28,3 +28,16 @@ test {
 //        includeTags 'getUsers'
 //    }
 //}
+
+dependencies {
+    testRuntimeOnly("org.junit.platform:junit-platform-reporting:1.10.0")
+}
+tasks.withType(Test).configureEach {
+    def outputDir = reports.junitXml.outputLocation
+    jvmArgumentProviders << ({
+        [
+                "-Djunit.platform.reporting.open.xml.enabled=true",
+                "-Djunit.platform.reporting.output.dir=${outputDir.get().asFile.absolutePath}"
+        ]
+    } as CommandLineArgumentProvider)
+}

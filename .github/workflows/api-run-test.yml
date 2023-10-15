@@ -39,7 +39,7 @@ jobs:
       with:
         artifact: test-results
         name: JEST Tests
-        path: 'build/reports/tests/test/*.xml'
+        path: 'build/reports/tests/test'
         reporter: jest-junit
     
     # - name: Generate Test Summary

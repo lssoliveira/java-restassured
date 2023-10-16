@@ -46,6 +46,3 @@ jobs:
       if: always()
       with:
         paths: "build/test-results/test/TEST-*.xml"
-
-    
-

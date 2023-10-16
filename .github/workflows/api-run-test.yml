@@ -5,6 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      test_parameter:
+        description: 'Parâmetro de Teste (opcional)' 
+        required: false
+        default: ''
 
 jobs:
   test:
@@ -25,7 +30,12 @@ jobs:
       run: gradle build
 
     - name: Run Tests
-      run: ./gradlew test
+      run: |
+        if [[ -n "${{ github.event.inputs.test_parameter }}" ]]; then
+        ./gradlew test --tests "${{ github.event.inputs.test_parameter }}"
+        else
+        ./gradlew test
+        fi
 
     - name: Upload Test Results
       uses: actions/upload-artifact@v3

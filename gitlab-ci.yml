@@ -1,0 +1,21 @@
+stages:
+  - test
+
+variables:
+  TEST_PARAMETER: ""
+
+test:
+  stage: test
+  image: adoptopenjdk/openjdk16:latest
+  script:
+    - apt-get update
+    - ./gradlew build
+    - if [ -n "$TEST_PARAMETER" ]; then
+      ./gradlew test --tests "$TEST_PARAMETER";
+      else
+        ./gradlew test;
+      fi
+  artifacts:
+    when: always
+    paths:
+      - build/reports/tests/

@@ -14,6 +14,10 @@ Após clonado o repositório, para preparar o ambiente, acesse a pasta raiz e ex
 ```sh
 gradlew build
 ```
+Para sistema MacOS ou Linux adicione `./` antes de todos os comandos:
+```sh
+./gradlew build
+```
 
 ## Bibiliotecas Utilizadas
 As dependências serão instaladas automaticamente no momento do build, de acordo com o listado no arquivo `build.gradle`.</p>
@@ -24,14 +28,8 @@ Algumas das bibliotecas mais importanes utilizadas no projeto são:
 ## Como Executar
 ### Execução Local
 #### Todos os testes:
-Windows:
 ```sh
 gradlew test
-```
-
-macOS:
-```sh
-./gradlew test
 ```
 
 #### Testes parametrizados:

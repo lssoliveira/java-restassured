@@ -45,8 +45,8 @@ Exemplo de Testes de Produtos:
 gradlew test --tests "dummyJson.tests.ProductTest"
 ```
 
-### Execução Workflow Github Actions
-- Execução de todos os testes, sem informar parametros, 
+### Execução Workflow Github Actions e GitLab
+- Execução de todos os testes, sem informar parametros.
 - Execução de teste específico, informando parametro de teste.
 
 ## Estrutura
@@ -62,7 +62,7 @@ gradlew test --tests "dummyJson.tests.ProductTest"
 
 ## Relatório de testes:
 ### Local:
-- `.html`: Gerado automaticamente no diretório: `./build/reports/**/*.html`. </p> Para acessar basta abrir o arquivo no navegador.
+- `.html`: Gerado automaticamente no diretório: `./build/reports/**/*.html`. Para acessar basta abrir o arquivo no navegador.
 - `.xml`: Gerado automaticamente no diretório: `./build/test-results/**/*.xml`.
 
 ### GitHub:

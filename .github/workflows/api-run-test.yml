@@ -33,15 +33,3 @@ jobs:
       with:
         name: test-results
         path: build/reports/tests/test
-
-    # - name: Display Test Summary
-    #   id: test-summary
-    #   run: |
-    #     total_tests=$(grep 'tests, ' build/reports/tests/test/index.html | sed 's/ tests,.*//')
-    #     passed_tests=$(grep 'Tests Passed' build/reports/tests/test/index.html | sed 's/.*>\(.*\) Tests Passed<.*/\1/')
-    #     failed_tests=$((total_tests - passed_tests))
-    #     echo "Test Summary: $passed_tests passed, $failed_tests failed"
-
-    # - name: Set Test Summary
-    #   id: set-test-summary
-    #   run: echo "Test Summary: ${{ steps.test-summary.outputs.test-summary }}" >> $GITHUB_ENV

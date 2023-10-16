@@ -36,7 +36,7 @@ public class ProductTest extends ApiBase {
         // Assert
         response.then().
             statusCode(HttpStatus.SC_OK).
-            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("dummyJson/schema/getProductsAuth_schema.json")).
+            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/getProductsAuth_schema.json")).
             body(
                 "products.size()", is(30)
             );
@@ -142,7 +142,7 @@ public class ProductTest extends ApiBase {
         // Assert
         response.then().
             statusCode(HttpStatus.SC_OK).
-            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("dummyJson/schema/getProduct_schema.json")).
+            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/getProduct_schema.json")).
             body(
                 "products.size()", is(30)
             );
@@ -162,7 +162,7 @@ public class ProductTest extends ApiBase {
         // Assert
         response.then().
         statusCode(HttpStatus.SC_OK).
-        assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("dummyJson/schema/getProductId_schema.json")).
+        assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/getProductId_schema.json")).
             body(
                 "id", is (productId)
             );

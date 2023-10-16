@@ -43,7 +43,7 @@ public class UserTest extends ApiBase {
         // Assert
         response.then().
             statusCode(HttpStatus.SC_OK).
-            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("dummyJson/schema/getUsers_schema.json")).
+            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/getUsers_schema.json")).
             body(
                 "users.size()", is(30)
             );
@@ -63,7 +63,7 @@ public class UserTest extends ApiBase {
         // Assert
         response.then().
             statusCode(HttpStatus.SC_OK).
-            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("dummyJson/schema/postAuth.json")).
+            assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schema/postAuth.json")).
             body(
                 "username", is(auth.username)
             );

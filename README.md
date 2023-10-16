@@ -42,7 +42,7 @@ gradlew test --tests "dummyJson.tests.UserTest"
 
 Exemplo de Testes de Produtos:
 ```sh
-gradlew test --tests "dummyJson.tests.UserTest.getTest"
+gradlew test --tests "dummyJson.tests.ProductTest"
 ```
 
 ### Execução Workflow Github Actions

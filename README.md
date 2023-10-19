@@ -65,7 +65,7 @@ gradlew test --tests "dummyJson.tests.ProductTest"
 - `.html`: Gerado automaticamente no diretório: `./build/reports/**/*.html`. Para acessar basta abrir o arquivo no navegador.
 - `.xml`: Gerado automaticamente no diretório: `./build/test-results/**/*.xml`.
 
-### GitHub:
+### GitHub e GitLab:
 - Será gerado o realtório `.html` automaticamente, ficando disponível para download no output da execução.
 
 ## Comportamentos Identificados da API

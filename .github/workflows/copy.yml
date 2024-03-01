@@ -1,15 +1,15 @@
 name: Copy Test
 
 on:
-  schedule:
-    - cron: '0 12 * * 1-5'
   push:
-    branches: 
-      - copy
-  pull_request:
-    branches: 
+    branches:
       - copy
   workflow_dispatch:
+    inputs:
+      test_parameter:
+        description: 'Parâmetro de Teste (opcional)' 
+        required: false
+        default: ''
 
 jobs:
   test:

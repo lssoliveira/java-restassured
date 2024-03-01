@@ -1,0 +1,58 @@
+name: Copy Test
+
+on:
+  schedule:
+    - cron: '0 12 * * 1-5'
+  push:
+    branches: 
+      - copy
+  pull_request:
+    branches: 
+      - copy
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: API Test Job
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+    
+    - name: Execute Gradle build
+      run: gradle build
+
+    - name: Run Tests
+      run: |
+        if [[ -n "${{ github.event.inputs.test_parameter }}" ]]; then
+        ./gradlew test --tests "${{ github.event.inputs.test_parameter }}"
+        else
+        ./gradlew test
+        fi
+
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results
+        path: build/reports/tests/test
+        
+    - name: Upload Test Results XML
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results
+        path: build/test-results/test
+
+    - name: Generate Summary
+      uses: janisz/action@v2
+      if: always()
+      with:
+        paths: "build/test-results/test/TEST-*.xml"

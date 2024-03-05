@@ -15,4 +15,4 @@ jobs:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           repository: lssoliveira/api-tests-jest-pactum
           event-type: run-external-tests
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+          client-payload: '{"branch": "${{ github.head_ref }}"}'

@@ -1,0 +1,17 @@
+name: Automation | CD
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch repository dispatch event
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
+          repository: lssoliveira/api-tests-jest-pactum
+          event-type: run-external-tests
+          client-payload: '{"branch": "${{ github.head_ref }}"}'

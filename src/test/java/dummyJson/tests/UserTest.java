@@ -55,7 +55,7 @@ public class UserTest extends ApiBase {
     @DisplayName("Realizar uma autenticacao com usuario e senha")
     public void postAuthLogin() {
         // Arrange
-        Auth auth = new Auth("kminchelle", "0lelplR");
+        Auth auth = new Auth("emilys", "emilyspass");
 
         // Act
         Response response = ApiService.ApiPostAuthLogin(auth);

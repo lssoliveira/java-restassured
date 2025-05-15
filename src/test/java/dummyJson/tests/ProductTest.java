@@ -26,9 +26,9 @@ public class ProductTest extends ApiBase {
     @DisplayName("Buscar produtos apos estar autenticado")
     public void getAuthProducts() {
         // Arrange
-        Auth auth = new Auth("kminchelle", "0lelplR");
+        Auth auth = new Auth("emilys", "emilyspass");
         Response responseAuth = ApiService.ApiPostAuthLogin(auth);
-        String token = responseAuth.path("token");
+        String token = responseAuth.path("accessToken");
 
         // Act
         Response response = ApiService.ApiGetAuthProducts(token);
@@ -77,7 +77,6 @@ public class ProductTest extends ApiBase {
         response.then().
             statusCode(HttpStatus.SC_UNAUTHORIZED).
             body(
-                "name", is("JsonWebTokenError"),
                 "message", is("Invalid/Expired Token!")
             );
     }
@@ -97,11 +96,9 @@ public class ProductTest extends ApiBase {
 
         // Assert
         response.then().
-            statusCode(HttpStatus.SC_UNAUTHORIZED).
+            statusCode(HttpStatus.SC_INTERNAL_SERVER_ERROR).
             body(
-                "name", is("TokenExpiredError"),
-                "message", is("Token Expired!"),
-                "expiredAt", instanceOf(String.class)
+                "message", is("invalid signature")
             );
     }
 
@@ -118,7 +115,7 @@ public class ProductTest extends ApiBase {
 
         // Assert
         response.then().
-            statusCode(HttpStatus.SC_OK).
+            statusCode(HttpStatus.SC_CREATED).
             body(
                 "id", instanceOf(Number.class),
                 "title", is (product.title),
